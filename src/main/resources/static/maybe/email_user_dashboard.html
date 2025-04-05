@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailTracker - Fast & Secure</title>
+    <link rel="stylesheet" href="./css/email_user_dashboard.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>EmailTracker</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/email_login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-item">
+            <div class="gauge-container">
+                <svg viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet">
+                    <path d="M 10 100 A 90 90 0 0 1 190 100" stroke="lightgray" stroke-width="12" fill="none" stroke-linecap="round" />
+                    <path id="progressArc" d="M 10 100 A 90 90 0 0 1 190 100" stroke="blue" stroke-width="10" fill="none" stroke-dasharray="283" stroke-dashoffset="283" stroke-linecap="round" />
+                </svg>
+                <div class="needle" id="needle"></div>
+                <div class="center-circle"></div>
+                <div class="value-display" id="valueDisplay">0</div>
+            </div>
+            <div class="label-container">
+                <span id="min-value">0</span>
+                <span id="max-value">40</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="logout-popup-overlay" id="logout-popup">
+        <div class="logout-popup">
+            <div class="logout-loader"></div>
+            <p>Logging You Out...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 EmailTracker. All rights reserved.</p>
+    </footer>
+    <script src="./js/email_user_dashboard.js"></script>
+</body>
+
+</html>

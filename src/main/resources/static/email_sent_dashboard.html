@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailTracker - Dashboard</title>
+    <link rel="icon"  href="./photos/favicon.png">
+    <link rel="stylesheet" href="./css/email_tracking.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav>
+            <h1>EmailTracker</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <section class="email-list">
+        <h2></h2>
+        <ul id="emailContainer">
+            <!-- Emails will be inserted here by JavaScript -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h3>It looks you didnt send any mail till now!</h3>
+                    <p>Fast, secure, and reliable email delivery for individuals and businesses.</p>
+                    <a href="./email_send.html" class="cta-button">Start Sending</a>
+                </div>
+            </section>
+        </ul>
+    </section>
+    <div class="pagination">
+        <button id="prevBtn" onclick="changePage(-1)">Previous</button>
+        <span id="pageNumbers"></span>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+    </div>
+
+
+    <!-- Logout Overlay -->
+    <div class="logout-popup-overlay" id="logout-popup">
+        <div class="logout-popup">
+            <div class="logout-loader"></div>
+            <p>Logging You Out...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 EmailTracker. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/email_tracking.js"></script>
+</body>
+
+</html>

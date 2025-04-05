@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+body {
+    
+    /* height: 100vh; */
+    color: white;
+    /* display: flex; */
+    background: linear-gradient(135deg, #3856dd, #652c9e);
+        /* Matching Background */
+    flex-direction: column;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    backdrop-filter: blur(10px);
+}
+
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav h1 {
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+    font-family: Arial, sans-serif;
+
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Menu */
+.user-menu {
+    position: relative;
+}
+
+.user-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -100px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    text-align: left;
+}
+
+.user-menu .dropdown li {
+    padding: 5px 2px;
+}
+
+.user-menu .dropdown li a {
+    color: #333;
+    list-style: none;
+    display: block;
+}
+
+
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+
+
+
+.email-container{
+    /* margin-top: 25px; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.editor-container, .from_to {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 700px;
+    /* Adjust width */
+    
+    position: relative;
+}
+input{
+    width: 100%;
+    padding: 9px;
+    font-size: 14px;
+    color:  #464040;
+    height: 40px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+#subject{
+    height: 60px;
+    margin-top: 20px;
+}
+.from{
+    border: 1px solid #ccc;
+    padding: 7px;
+    border-radius: 4px;
+    color: #575454;
+}
+
+/* Customize Quill Editor */
+.ql-toolbar {
+    background: #f3f3f3;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.ql-container {
+    height: 200px;
+    color: black;
+    /* Set editor height */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Send Button */
+.send-btn {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+}
+
+.send-btn:hover {
+    background: #764ba2;
+}
+
+/* File Input */
+
+.file-input {
+    display: none;
+}
+
+
+.file-label {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 7px 15px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.file-label:hover {
+    background: #764ba2;
+}
+
+.file-name {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+/* Tooltip */
+.send-btn::after {
+    content: "Click to send the email";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.draft::after{
+    content: "Click to save the email as draft";
+}
+
+.send-btn:hover::after {
+    opacity: 1;
+}
+
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Popup Content */
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.popup p{
+    color: #464040;
+}
+
+/* Loading Spinner */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Show Popup */
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+/* body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+} */
+
+
+/* logout Popup Overlay */
+.logout-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Popup Content */
+.logout-popup {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout-popup p{
+    color: #464040;
+}
+
+/* Loading Spinner */
+.logout-loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Show Popup */
+.logout-popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.compose-container{
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px auto;
+    
+  
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    /* text-align: center; */
+    max-width: 55%;
+}
+
+
+footer {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Optional, for better separation */
+}
+
+
+/* File Upload And Show */
+
+.file-label {
+    display: block;
+    margin-bottom: 10px;
+    background: #667eea;
+    color: white;
+    /* padding: 10px; */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-label input[type="file"] {
+    display: none;
+}
+
+.file-label button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-label button:hover {
+    background: #218838;
+}
+
+#filePopup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+#filePopup h3{
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#filePopup .popup-content {
+    
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    min-width: 350px;
+    max-width: 440px;
+    
+}
+#fileList{
+    max-height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+#fileList li{
+    gap: 10px;
+    
+}
+#fileList li div{
+    cursor: pointer;
+    
+}
+
+#filePopup .close {
+    float: right;
+    font-size: 24px;
+    background-color: #555;
+    padding: 4px 12px;
+    
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#filePopup ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#filePopup ul li {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background: #f8fbff;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+#filePopup .remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#filePopup .remove-btn:hover {
+    background: darkred;
+}
+
+#removeAll {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#removeAll:hover {
+    background: darkred;
+}
+
+#showFiles{
+    border: none;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: transparent;
+}

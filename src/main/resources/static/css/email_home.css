@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #3856dd, #652c9e);
+    /* color: white; */
+}
+
+/* Navbar */
+header {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Inbox Container */
+.inbox-container {
+    /* background: rgb(230, 220, 220); */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(145, 127, 127, 0.24);
+    text-align: center;
+    width: 400px;
+    margin: 20px auto;
+}
+
+h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Email List */
+.email-list {
+    list-style: none;
+    padding: 0;
+}
+
+.email-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.email-item:hover {
+    background: #eee;
+}
+
+/* Status Labels */
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.delivered {
+    background: #4caf50;
+    color: white;
+}
+
+.opened {
+    background: #ff9800;
+    color: white;
+}
+
+.failed {
+    background: #e53935;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #667eea;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Inbox Section */
+.inbox {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+}
+
+.inbox h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #0077b6;
+}
+
+/* Email List */
+.email-list {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.email-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    text-align: left;
+    border-left: 5px solid #0077b6;
+}
+
+.email-item:hover {
+    background: #eee;
+}
+
+/* Status Labels */
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.delivered {
+    background: #4caf50;
+    color: white;
+}
+
+.opened {
+    background: #ff9800;
+    color: white;
+}
+
+.failed {
+    background: #e53935;
+    color: white;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailTracker - Compose Your Mail</title>
+    <link rel="icon"  href="./photos/favicon.png">
+    <!-- Include Quill stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/email_send.css">
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>EmailTracker</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Editor Container -->
+
+    <section class="compose-container">
+
+        <!-- <h2>Compose</h2> -->
+
+        <div class="email-container">
+            <div>
+                <div class="from_to">
+                    <div class="from">from: <span id="username"></span></span></div>
+                    <div><input type="text" name="" id="to" placeholder="to send"></div>
+                    <div><input type="text" name="" id="subject" placeholder="write subject here"></div>
+                </div>
+                <div class="editor-container">
+                    <div id="editor">
+                        <p>Hello World!</p>
+                        <p>Some initial <strong>bold</strong> text</p>
+                        <p><br /></p>
+                    </div>
+
+                 <div style="display: flex; justify-content: space-between;">
+                    <div>
+                     <button class="send-btn">Send</button>
+                     <button class="send-btn draft">Save as draft</button>
+                    </div>
+                    <!-- File Upload -->
+                     <div>
+                    <input type="file" id="fileInput" class="file-input">
+                    <label for="fileInput" class="file-label"> Attach File</label>
+                    <button id="showFiles">No files selected</button>
+
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Popup for Attached Files -->
+<div id="filePopup" class="popup">
+    <div class="popup-content">
+        <div>
+        <div id="closePopup" class="close">&times;</div>
+        <h3>Attached Files</h3>
+    </div>
+        <ul id="fileList"></ul>
+        <button id="removeAll">Remove All</button>
+    </div>
+</div>
+
+    <!-- File List Popup -->
+
+    <div class="popup-overlay" id="filePopup">
+        <div class="popup">
+            <h3>Attached Files</h3>
+            <ul id="fileList"></ul>
+            <button id="removeAll">Remove All</button>
+            <button id="closePopup">Close</button>
+        </div>
+    </div>
+
+    <!-- Popup Overlay -->
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <div class="loader"></div>
+            <p>Sending...</p>
+        </div>
+    </div>
+
+    <!-- Logout Overlay -->
+
+    <div class="logout-popup-overlay" id="logout-popup">
+        <div class="logout-popup">
+            <div class="logout-loader"></div>
+            <p>Logging You Out...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 EmailTracker. All rights reserved.</p>
+    </footer>
+
+    <!-- Include Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <!-- Initialize Quill Editor -->
+    <script>
+        const quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+
+    </script>
+
+    <script src="./js/email_send.js"></script>
+</body>
+
+</html>

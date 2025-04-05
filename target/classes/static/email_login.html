@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailTracker - User Login</title>
+    <link rel="icon"  href="./photos/favicon.png">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1>EmailTracker</h1>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+                <!-- <li><a href="/login.html">Login</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div style="height: 85vh;display: flex; justify-content: center; align-items: center;">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="email address" oninput="isGmail()" required>
+            <div style="position: relative; display: flex; align-items: center;">
+                <input type="password" id="password" placeholder="app password" oninput="removeWhiteSpace()" required style="width: 100%; padding-right: 40px;">
+                <button title="show password" type="button" onclick="toggle()" id="togglePassword"
+                    style=" color: white;width:40px; position: absolute;     right: -2px; top: 0px; background: none; border: none; cursor: pointer;">
+                    <img id="svg-image" style="width:100%; height: 100%; " src="./photos/eye-password-show-svgrepo-com.svg" alt="">
+                </button>
+            </div>
+            
+            
+            <div><a href="./app-password-info.html" target="_blank">What is app password?</a></div>
+            <button type="button" onclick="showConfirmation()">Send Code</button>
+        </form>
+        
+        <hr>
+
+        <form id="authForm" style="display: none;">
+            <div>A code has been sent to your mail.</div>
+            <input type="number" id="code" placeholder="Enter Code" maxlength="6" minlength="6" required>
+            <button type="button" onclick="authenticate()">Authenticate</button>
+        </form>
+        
+        <p id="message"></p>
+
+        
+    </div>
+</div>
+    <!-- Confirmation Popup -->
+    <div id="confirmationPopup" class="popup-container">
+        <div class="popup-box">
+            <h3>Confirm Your Details</h3>
+            <p id="confirmationText"></p>
+            <button onclick="proceed()">Yes</button>
+            <button onclick="closePopup()">No</button>
+        </div>
+    </div>
+
+<!-- Authenticate Overlay -->
+<div class="authenticate-popup-overlay" id="authenticate-popup">
+    <div class="authenticate-popup">
+        <div class="authenticate-loader"></div>
+        <p>Authenticating...</p>
+    </div>
+</div>
+
+    
+    <footer>
+        <p>&copy; 2025 EmailTracker. All rights reserved.</p>
+    </footer>
+    
+
+    <script src="./js/login.js"></script>
+</body>
+</html>
